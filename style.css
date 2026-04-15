@@ -11,7 +11,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: None;
   text-underline-offset: 0.12em;
 }
 
