@@ -9,10 +9,17 @@ function addTask() {
   };
 
   const li = document.createElement("li");
-  li.innerHTML = `${task} <button onclick="this.parentElement.remove()">❌</button>`;
+  li.appendChild(document.createTextNode(task));
+  li.appendChild(document.createTextNode(" "));
 
+  const removeButton = document.createElement("button");
+  removeButton.textContent = "Remove";
+  removeButton.addEventListener("click", function () {
+    li.remove();
+  });
+
+  li.appendChild(removeButton);
   document.getElementById("taskList").appendChild(li);
   
   input.value = "";
 }
-
