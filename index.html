@@ -7,29 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <header class="site-header">
         <h1>📚 Study Task Tracker</h1>
-        
-       <div class="input-section">
-            <input type="text" id="taskInput" placeholder="What are you studying?">
-           
-              <span> 
-        
-            <select id="categoryInput">
-                <option value="Theory">📘 Theory</option>
-                <option value="Practical">💻 Practical</option>
-                <option value="Revision">🔄 Revision</option>
-                <option value="Assignment">📝 Assignment</option>
-            </select>
-            <button id="addBtn" onclick="addTask()">Add Task</button>
-             </span>
-    
-       
-            </div>
+        <button id="themeToggle" onclick="toggleTheme()">Dark Mode</button>
+    </header>
 
-        <ul id="taskList">
-            </ul>
-    </div>
+    <main class="container">
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="What are you studying?">
+            <div class="controls">
+                <select id="categoryInput">
+                    <option value="Theory">📘 Theory</option>
+                    <option value="Practical">💻 Practical</option>
+                    <option value="Revision">🔄 Revision</option>
+                    <option value="Assignment">📝 Assignment</option>
+                </select>
+                <button id="addBtn" onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+        <ul id="taskList" aria-live="polite"></ul>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Study Task Tracker</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
