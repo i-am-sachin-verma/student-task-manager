@@ -61,33 +61,29 @@ function addTask() {
   input.value = "";
 
 }
-function toggleTheme() {
-  const body = document.body;
-  const btn = document.getElementById("themeToggle");
+/* =========================
+   MULTI-THEME SWITCHER
+========================= */
 
-  body.classList.toggle("dark-mode");
+const themeSwitcher = document.getElementById("themeSwitcher");
 
-  if (body.classList.contains("dark-mode")) {
-    btn.textContent = "☀️ Light Mode";
-    localStorage.setItem("theme", "dark");
-  } else {
-    btn.textContent = "🌙 Dark Mode";
-    localStorage.setItem("theme", "light");
-  }
+// Load saved theme
+const savedTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-theme", savedTheme);
+
+if (themeSwitcher) {
+  themeSwitcher.value = savedTheme;
+
+  themeSwitcher.addEventListener("change", function (e) {
+    const selectedTheme = e.target.value;
+
+    document.documentElement.setAttribute("data-theme", selectedTheme);
+    localStorage.setItem("theme", selectedTheme);
+  });
 }
 
-window.onload = function () {
-  const savedTheme = localStorage.getItem("theme");
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    document.getElementById("themeToggle").textContent = "☀️ Light Mode";
-  }
-};
-=======
 
-  updateUI();
-}
 
 function toggleTask(checkbox) {
   const span = checkbox.nextElementSibling;
@@ -112,4 +108,4 @@ function taskTracker() {
   }
 }
 
-}
+
