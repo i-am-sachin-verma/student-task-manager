@@ -370,3 +370,63 @@ html[data-theme] button {
 body {
   transition: all 0.3s ease;
 }
+
+.celebration {
+  text-align: center;
+  margin-top: 20px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+}
+
+.celebration img {
+  width: 200px;
+  max-width: 100%;
+}
+
+/* When visible */
+.celebration.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 🎉 Image animation */
+.celebration.show img {
+  animation: bounceIn 0.6s ease, float 2s ease-in-out infinite;
+}
+
+/* Bounce entry */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.95) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Floating effect */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ✨ Optional glow effect */
+.celebration.show img {
+  filter: drop-shadow(0 0 10px gold);
+}
